@@ -1,0 +1,83 @@
+
+uiElements.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+defaultCheckBox
+  rotate: false
+  xy: 254, 54
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+defaultCheckBoxTicked
+  rotate: false
+  xy: 358, 308
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+defaultColorPickCross
+  rotate: false
+  xy: 2, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+defaultColorPickerSelection
+  rotate: false
+  xy: 2, 156
+  size: 354, 354
+  orig: 354, 354
+  offset: 0, 0
+  index: -1
+defaultPopUpBackground
+  rotate: false
+  xy: 36, 20
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+defaultPopUpExit
+  rotate: false
+  xy: 358, 206
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+defaultRadioBox
+  rotate: false
+  xy: 358, 104
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+defaultRadioTicked
+  rotate: false
+  xy: 356, 2
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+defaultScrollBarLine
+  rotate: false
+  xy: 2, 54
+  size: 250, 100
+  orig: 250, 100
+  offset: 0, 0
+  index: -1
+halfWhiteColor
+  rotate: false
+  xy: 480, 490
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+systemWhiteRect
+  rotate: false
+  xy: 358, 410
+  size: 120, 100
+  orig: 120, 100
+  offset: 0, 0
+  index: -1

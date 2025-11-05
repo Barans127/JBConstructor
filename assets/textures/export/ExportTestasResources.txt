@@ -1,0 +1,5 @@
+// auto generated resource file from JBConstructor
+resources/atlases/geras.txt : defaultTextureAtlas0
+resources/animations/zvng/wte.scml : defaultAnimeName0
+resources/icons8-close-window-50.png : defaultImage2
+resources/ground.png : defaultImage6

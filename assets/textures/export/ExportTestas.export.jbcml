@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JBC_data>
+	<Project name="ExportTestas" export="true" resources="ExportTestasResources.txt"/>
+	<FORM name="ExportTestas">
+		<chains>
+			<chain name="chain1" loop="false">
+				<point x="1239.6997" y="791.7001"/>
+				<point x="1223.6997" y="422.1001"/>
+				<point x="996.49976" y="278.1001"/>
+				<point x="657.2997" y="90.900085"/>
+				<point x="439.6997" y="-73.899994"/>
+				<point x="156.49968" y="-150.7"/>
+				<point x="-45.10031" y="-297.90005"/>
+				<point x="-523.5003" y="-526.7001"/>
+				<point x="-1015.90015" y="-809.4999"/>
+				<point x="-1601.8" y="-837.3999"/>
+				<point x="-2041.9999" y="-716.4999"/>
+				<point x="-2392.2998" y="-198.80014"/>
+			</chain>
+		</chains>
+		<Item type="Resource">
+			<param x="713.2604" y="154.64395" angle="20.0" positioning="2" idName="juokutis" width="219.89957" height="246.94746" tint="ffffffff" resource="defaultAnimeName0">
+				<phcs>
+					<Body BodyType="StaticBody" originMiddle="false" x="96.89436" y="350.09534"/>
+					<figure type="1" radius="728.68665" density="0.0" friction="0.2" restitution="0.0" sensor="false" categoryBits="1" maskBits="-1" group="0">
+						<point x="366.31815" y="339.29623"/>
+					</figure>
+				</phcs>
+			</param>
+		</Item>
+		<Item type="Resource">
+			<param x="1120.9885" y="487.87122" angle="88.0" positioning="2" idName="Resource2" width="393.01337" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="1015.0457" y="176.91054" angle="33.0" positioning="2" idName="Resource3" width="307.9931" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="665.56" y="8.182124" angle="29.0" positioning="2" idName="Resource4" width="421.1877" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="435.7656" y="-175.15405" angle="37.0" positioning="2" idName="Resource5" width="307.9931" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="169.9058" y="-297.4058" angle="16.0" positioning="2" idName="Resource6" width="324.81595" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="-40.18749" y="-406.7167" angle="37.0" positioning="2" idName="Resource7" width="274.23798" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="-513.66583" y="-587.9227" angle="26.0" positioning="2" idName="Resource8" width="566.48706" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="-1005.6259" y="-846.278" angle="30.0" positioning="2" idName="Resource9" width="566.48706" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="-1605.1193" y="-1012.77374" angle="3.0" positioning="2" idName="Resource10" width="632.00134" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="-2088.995" y="-968.02655" angle="-16.0" positioning="2" idName="Resource11" width="512.1164" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="-2620.8486" y="-630.72095" angle="-56.0" positioning="2" idName="Resource12" width="690.791" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="1145.5999" y="623.6002" angle="0.0" positioning="2" idName="veikejas" width="50.0" height="50.0" tint="ffffffff" resource="ball3">
+				<phcs>
+					<Body BodyType="DynamicBody" originMiddle="true"/>
+					<figure type="1" radius="200.0" density="0.5" friction="0.2" restitution="0.5" sensor="false" categoryBits="1" maskBits="-1" group="0">
+						<point x="101.0" y="100.00003"/>
+					</figure>
+				</phcs>
+			</param>
+		</Item>
+		<Item type="Resource">
+			<param x="914.70013" y="682.99994" angle="0.0" positioning="2" idName="kamuolys" width="200.0" height="202.0" tint="ffff4444" resource="ball1">
+				<phcs>
+					<Body BodyType="DynamicBody" originMiddle="true"/>
+					<figure type="1" radius="202.0" density="5.0" friction="0.2" restitution="0.1" sensor="false" categoryBits="1" maskBits="-1" group="0">
+						<point x="99.0" y="99.00003"/>
+					</figure>
+				</phcs>
+			</param>
+		</Item>
+		<Item type="Resource">
+			<param x="600.67944" y="344.66098" angle="0.0" positioning="2" idName="Resource1" width="231.99997" height="245.32715" tint="ffffffff" resource="defaultAnimeName0"/>
+		</Item>
+	</FORM>
+	<FORM name="suolis">
+		<chains>
+			<chain name="chain1" loop="false">
+				<point x="1380.1995" y="1138.1998"/>
+				<point x="1191.7994" y="1137.9998"/>
+				<point x="1191.6997" y="574.39886"/>
+				<point x="-384.70026" y="-371.00104"/>
+				<point x="-663.60065" y="-487.2011"/>
+				<point x="-955.6006" y="-548.7011"/>
+				<point x="-1617.1006" y="-856.20087"/>
+				<point x="-1902.6005" y="-1468.7008"/>
+				<point x="-2462.6006" y="-1497.7007"/>
+				<point x="-2824.1006" y="-1038.2009"/>
+				<point x="-2801.6003" y="-403.7007"/>
+				<point x="-2989.6006" y="-397.20065"/>
+			</chain>
+		</chains>
+		<Item type="Resource">
+			<param x="-3264.2021" y="-871.1809" angle="-92.0" positioning="2" idName="Resource10" width="733.34485" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="380.8" y="192.6" angle="31.0" positioning="2" idName="Resource1" width="1024.0" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="941.0513" y="697.93256" angle="90.0" positioning="2" idName="Resource2" width="669.3754" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="-431.60016" y="-295.00003" angle="31.0" positioning="2" idName="Resource3" width="1024.0" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="-654.4589" y="-615.18176" angle="22.0" positioning="2" idName="Resource4" width="315.3236" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="-944.6589" y="-703.78186" angle="12.0" positioning="2" idName="Resource5" width="315.3236" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="-1618.6042" y="-883.17993" angle="25.0" positioning="2" idName="Resource6" width="733.34485" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="-2060.8042" y="-1325.3807" angle="65.0" positioning="2" idName="Resource7" width="733.34485" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="-2498.2031" y="-1669.9806" angle="3.0" positioning="2" idName="Resource8" width="733.34485" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="-3062.004" y="-1441.7809" angle="-52.0" positioning="2" idName="Resource9" width="733.34485" height="210.0" tint="ffffffff" resource="defaultImage6"/>
+		</Item>
+		<Item type="Resource">
+			<param x="1000.5001" y="864.4995" angle="0.0" positioning="2" idName="staciakampis" width="126.999985" height="114.99997" tint="ffffffff" resource="defaultImage2">
+				<phcs>
+					<Body BodyType="DynamicBody" originMiddle="true"/>
+					<figure type="0" radius="0.0" density="1.0" friction="0.2" restitution="0.5" sensor="false" categoryBits="1" maskBits="-1" group="0">
+						<point x="3.5976133" y="4.87257"/>
+						<point x="3.7333724" y="46.101997"/>
+						<point x="45.547142" y="45.802143"/>
+						<point x="45.275623" y="4.5727196"/>
+					</figure>
+				</phcs>
+			</param>
+		</Item>
+		<Item type="Resource">
+			<param x="807.00006" y="959.00024" angle="0.0" positioning="2" idName="kamuolys" width="200.0" height="200.0" tint="ffffffff" resource="ball5">
+				<phcs>
+					<Body BodyType="DynamicBody" originMiddle="true"/>
+					<figure type="1" radius="196.5154" density="2.0" friction="0.5" restitution="0.8" sensor="false" categoryBits="1" maskBits="-1" group="0">
+						<point x="98.94741" y="100.526375"/>
+					</figure>
+				</phcs>
+			</param>
+		</Item>
+		<Item type="Resource">
+			<param x="430.49805" y="924.0003" angle="-29.0" positioning="2" idName="rietulys" width="441.99997" height="100.49982" tint="ffffffff" resource="ball4">
+				<phcs>
+					<Body BodyType="DynamicBody" originMiddle="true"/>
+					<figure type="0" radius="0.0" density="0.6" friction="0.2" restitution="0.1" sensor="false" categoryBits="1" maskBits="-1" group="0">
+						<point x="0.5484714" y="122.72748"/>
+						<point x="40.038414" y="183.33371"/>
+						<point x="95.15979" y="205.15195"/>
+						<point x="163.71872" y="182.12158"/>
+						<point x="200.74054" y="111.8184"/>
+						<point x="180.99556" y="37.878838"/>
+						<point x="101.19298" y="-2.121254"/>
+						<point x="2.742357" y="65.75769"/>
+					</figure>
+				</phcs>
+			</param>
+		</Item>
+		<Item type="Resource">
+			<param x="871.5024" y="836.00024" angle="0.0" positioning="2" idName="kamuoliuks" width="80.0" height="80.0" tint="ffffffff" resource="ball0">
+				<phcs>
+					<Body BodyType="DynamicBody" originMiddle="true"/>
+					<figure type="1" radius="203.6419" density="5.0" friction="0.2" restitution="0.3" sensor="false" categoryBits="1" maskBits="-1" group="0">
+						<point x="99.41797" y="97.12327"/>
+					</figure>
+				</phcs>
+			</param>
+		</Item>
+	</FORM>
+</JBC_data>

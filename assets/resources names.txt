@@ -1,0 +1,73 @@
+﻿// tie paprasti ui elementai. ir color picker kartu.
+resources/ui/uiElements.txt : uiElements
+
+// menu. Desines peles.
+resources/constructorUI/menu/eyeIcon.png
+resources/constructorUI/menu/noEyeIcon.png
+resources/constructorUI/menu/labelIcon.png
+resources/constructorUI/menu/9patchIcon.png
+
+// physics editoriui
+resources/constructorUI/physicsEditor/mainPanel/allWayArrow.png : allWayArrow
+resources/constructorUI/physicsEditor/mainPanel/polygonShape.png : polygonShape
+resources/constructorUI/physicsEditor/mainPanel/circleShape.png : circleShape
+resources/constructorUI/physicsEditor/mainPanel/chainShape.png : chainShape
+resources/constructorUI/physicsEditor/mainPanel/edgeShape.png : edgeShape
+resources/constructorUI/physicsEditor/mainPanel/reposition.png : repositionIcon
+resources/constructorUI/physicsEditor/mainPanel/copyIcon.png
+resources/constructorUI/physicsEditor/mainPanel/pasteIcon.png
+
+resources/constructorUI/physicsEditor/controlPanel/undoredo.png : editorUndoRedo
+resources/constructorUI/physicsEditor/controlPanel/endButton.png : editorEndButton
+resources/constructorUI/physicsEditor/controlPanel/indication.png : editorIndicationButton
+
+// main edit paneliui.
+resources/constructorUI/editorPanel/mainEditorPointerKey.png : mainEditorPointerKey
+resources/constructorUI/editorPanel/hideKey.png : mainEditorHideKey
+resources/constructorUI/editorPanel/moreButton.png : mainEditorMoreKey
+resources/constructorUI/editorPanel/saveButton.png : mainEditorSaveKey
+resources/constructorUI/editorPanel/bringToFront.png : mainEditorToFrontKey
+resources/constructorUI/editorPanel/sendToBack.png : mainEditorToBackKey
+resources/constructorUI/editorPanel/rectButton.png : mainEditorRectKey
+resources/constructorUI/editorPanel/shutdownOff.png : mainEditorShutOffKey
+resources/constructorUI/editorPanel/shutDownOn.png : mainEditorShutOnKey
+resources/constructorUI/editorPanel/formIcon.png : mainEditorFormIcon
+resources/constructorUI/editorPanel/addForm.png : mainEditorAddIconKey
+resources/constructorUI/editorPanel/editButton.png : mainEditorEditIconKey
+resources/constructorUI/editorPanel/deleteKey.png : mainEditorDeleteIconKey
+resources/constructorUI/editorPanel/openKey.png : mainEditorOpenIconKey
+resources/constructorUI/editorPanel/fileLoadKey.png : mainEditorLoadFileKey
+resources/constructorUI/editorPanel/select.png : mainEditorSelectKey
+
+// additional paneliui
+//resources/constructorUI/editorPanel/additionalPanel/groupButton.png : additionalPanelGroupKey
+resources/constructorUI/editorPanel/additionalPanel/additionalPanelJointIcon.png : additionalPanelJointIcon
+resources/constructorUI/editorPanel/additionalPanel/polylineButton.png : additionalPanelChainKey
+resources/constructorUI/editorPanel/additionalPanel/projectExport.png : additionalPanelExportKey
+resources/constructorUI/editorPanel/additionalPanel/saveAsButton.png : additionalPanelSaveAsKey
+resources/constructorUI/editorPanel/additionalPanel/settingsButton.png : additionalPanelSettingsKey
+resources/constructorUI/editorPanel/additionalPanel/switchTabs.png : additionalPanelSwitchKey
+resources/constructorUI/editorPanel/additionalPanel/dropDownList.png : additionalPanelDownListKey
+
+// start forma
+resources/constructorUI/startForm/loadProject.png : startFormLoadKey
+resources/constructorUI/startForm/newProject.png : startFormNewProjectKey
+resources/constructorUI/startForm/searchProject.png : startFormSearchKey
+resources/constructorUI/startForm/minusProjectButton.png : startFormMinusKey
+
+// veikimo.
+resources/constructorUI/noImageButton.png : basicUsageNoImageKey
+
+// setting picker
+resources/constructorUI/settingsPicker/backgroundColorPick.png : settingPickerBackgroundPickKey
+resources/constructorUI/settingsPicker/prefixPickIcon.png : settingPickerPrefixPickKey
+resources/constructorUI/settingsPicker/shortCutIcon.png
+
+// paprasti image, examples
+//resources/textures/badlogic.jpg : systemImage
+//resources/textures/geras.txt : textureAtlasExample
+
+
+// angular dialog drawables
+resources/constructorUI/angularSelectionDialog/angularDialogCircleBackground.png : angularDialogCircleBackground
+resources/constructorUI/angularSelectionDialog/angularDialogPointer.png : angularDialogPointer

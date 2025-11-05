@@ -1,0 +1,54 @@
+wteResources.png
+size: 736, 1180
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Zvengutis_0000_Body
+  rotate: false
+  xy: 0, 0
+  size: 736, 736
+  orig: 736, 736
+  offset: 0, 0
+  index: -1
+Zvengutis_0000s_0000_Layer-3
+  rotate: false
+  xy: 0, 736
+  size: 220, 112
+  orig: 220, 112
+  offset: 0, 0
+  index: -1
+Zvengutis_0000s_0001_Layer-4
+  rotate: false
+  xy: 220, 736
+  size: 500, 266
+  orig: 500, 266
+  offset: 0, 0
+  index: -1
+Zvengutis_0001s_0000_Ellipse-2
+  rotate: false
+  xy: 0, 1002
+  size: 89, 89
+  orig: 89, 89
+  offset: 0, 0
+  index: -1
+Zvengutis_0001s_0001_Ellipse-1
+  rotate: false
+  xy: 89, 1002
+  size: 89, 89
+  orig: 89, 89
+  offset: 0, 0
+  index: -1
+Zvengutis_0001s_0002_Layer-2
+  rotate: false
+  xy: 178, 1002
+  size: 223, 178
+  orig: 223, 178
+  offset: 0, 0
+  index: -1
+Zvengutis_0001s_0003_Layer-1
+  rotate: false
+  xy: 401, 1002
+  size: 197, 178
+  orig: 197, 178
+  offset: 0, 0
+  index: -1
