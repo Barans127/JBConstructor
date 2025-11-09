@@ -50,6 +50,7 @@ public class StartForm extends Form {
         // mygtukai.
         // new project.
         SymbolButton.SymbolButtonStyle sbt = new SymbolButton.SymbolButtonStyle();
+//        sbt.positioning = Position.fixed;
         sbt.background = Resources.getDrawable("halfWhiteColor");
         sbt.normalColor = 0x00000000;
         sbt.onColor = 0xFFFF5500;

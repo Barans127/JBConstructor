@@ -10,22 +10,22 @@ import com.engine.core.Engine;
 import com.engine.interfaces.controls.Window.Position;
 import com.engine.interfaces.controls.widgets.TabControl;
 import com.engine.interfaces.listeners.FocusListener;
-import com.engine.root.GdxPongy;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /** default controleris. jokiu apribojimu. */
 public class InterfacesController {
-	private ArrayList<Interface> control; // visos kontroles
-	private Array<Connected> connections; // connectionai. radio button etc.
-	private Array<ActionListener> actionListeners; // action listenners.
+	private final ArrayList<Interface> control; // visos kontroles
+	private final Array<Connected> connections; // connectionai. radio button etc.
+	private final Array<ActionListener> actionListeners; // action listenners.
 	private boolean react = true, viewRequireUpdate, requireCordsTranslation = true; // vidaus veikimas
 	private Form form; // forma
 //	private int focusedItem, fixedItemStart;
 	private int fixedItemStart; // nuo kur prasides fixed item.
 	private int positioning = Window.absoluteView; // kokia sio kontrolerio pozicija.
-	private Vector3 mouseCoords; // keitimui del input.
+	private final Vector3 mouseCoords; // keitimui del input.
+    private final CoordTranslator coordTranslator = new CoordTranslator();
 
 	// focus
 	private Interface focusedItem; // item, kuris yra siuo metu sufokusuotas.
@@ -53,6 +53,7 @@ public class InterfacesController {
 	/* Frustum igalinimas */
 
 	/** Is controls frustum checked. Controls outside camera bounds will not be drawn or handled. */
+    @SuppressWarnings("unused") // To not show warnings. This is to get value. Other projects might use it.
 	public boolean isFrustumEnabled(){
 		return enableFrustum;
 	}
@@ -240,144 +241,6 @@ public class InterfacesController {
 		return true;
 	}
 
-//	void focusMe(Interface e){
-//		disableFocus();
-////		e.setFocused();
-//		for (int a = 0; a < control.size(); a++) {
-//			if (e == control.get(a)) {
-//				focusedItem = a; // atiduos focusa.
-//				control.get(a).setFocused();
-//				return;
-//			}
-//		}
-//		for (int a = 0; a < control.size(); a++) { // ciuj tab. special for tab... nes meh perrasyt viska
-//			Interface ah = control.get(a);
-//			if (ah instanceof TabControl){
-//				for (Panel aha : ((TabControl) ah).getBodies()){
-//					if (aha == e){
-//						e.setFocused();
-//						focusedItem = a;
-//						return;
-//					}
-//				}
-//			}
-//		}
-//	}
-
-//	int getFocusedItemId(){
-//		return focusedItem;
-//	}
-
-//	int getControlsCount(){
-//		return control.size();
-//	}
-
-	//	void focus(int way){
-//		int len = control.size();
-//		if (len == 0)
-//			return;
-//		if (focusedItem >= 0 && focusedItem < len) {
-//			if (allowChangeFocus(way)) { // jei kontrole turi viduj kontroliu tai su situo gali perjunkt i kita, o cia pranest, kad focuso nekeist.
-////				control.get(focusedItem).lostFocus();
-//				disableFocus();
-//			} else {
-//				return;
-//			}
-//		}else { // jei kazkokia klaida.
-//			for (Interface e : control){
-//				e.loseFocus();
-//			}
-//			resetFocus(false);
-//		}
-//		int id = focusedItem;
-//		int focusCount = 0;
-//		while (true) {
-//			id += way;
-//			if (id >= len)
-//				id = 0;
-//			if (id < 0) {
-//				id = len - 1;
-//			}
-////			focusedItem = id;
-//			focusCount++;
-//			if (focusCount > control.size()) { // turetu grizt prie pradines kontroles.
-//				break; // jei nebus ko fokusuot, turetu stabdyt.
-//			}
-//			if (control.get(id).setFocused()) {
-//				focusedItem = id;
-//				for (int a = 0; a < control.size(); a++){ // check for focus errors..... kuriu negal pagaut blyn..
-//					if (a != focusedItem){
-//						control.get(a).loseFocus();
-//					}
-//				}
-//				break;
-//			}
-//		}
-////		focusCount = 0;
-//	}
-
-//	boolean allowChangeFocus(int way) { // panelem reik...
-//		return control.size() != 0 && control.get(focusedItem).allowChangeFocus(way);
-//	}
-
-//	public void disableFocus(boolean callList){ // leis isjunkt focusavima kai pelyte virs controles.
-//		if (control.size() == 0)
-//			return;
-//		for (Interface e : control){
-//			e.loseFocus(callList);
-//		}
-//	}
-
-//	public void disableFocus(){
-//		disableFocus(true); // o tai kodel nereik pranest apie prarasta focusa?
-//	}
-
-//	public void enableFocus(){
-//		if (control.size() == 0)
-//			return;
-//		int id = focusedItem;
-//		int count = 0;
-//		int len = control.size();
-//		while (true) {
-//			Interface e = control.get(id);
-//			if (e.isFocusable()){
-//				if (e.setFocused()) {
-//					focusedItem = id;
-//					break;
-//				}
-//			}
-//			count++;
-//			id++;
-//			if (id >= len)
-//				id = 0;
-//			if (id < 0) {
-//				id = len - 1;
-//			}
-//			if (count > len){
-//				disableFocus();
-//				break;
-//			}
-//		}
-//	}
-
-//	public void resetFocus(boolean end){
-//		if (end){
-//			for (int a = control.size() - 1; a >= 0; a--){
-//				if (control.get(a).isFocusable()){
-//					focusedItem = a;
-//					break;
-//				}
-//			}
-//		}else{
-//			for (int a = 0; a < control.size(); a++){
-//				if (control.get(a).isFocusable()){
-//					focusedItem = a;
-//					break;
-//				}
-//			}
-//		}
-//	}
-
 	/* control valdymas */
 
 	/** pašalins iš sąrašo, nurodytą kontrolę. Pašalinta kontrolė, nebebus formoj. */
@@ -407,6 +270,7 @@ public class InterfacesController {
 	}
 
 	/** Get control by it's id. */
+    @SuppressWarnings("unused") // Might be used by other project in the future.
 	public Interface getControlById(String id){
 	    for (Interface e : control){
 	        if (e.getIdName().trim().equals(id)){
@@ -421,7 +285,7 @@ public class InterfacesController {
 			return false;
 		}
 		futureName = futureName.trim();
-		if (futureName.length() == 0)
+		if (futureName.isEmpty())
 			return false;
 		for (Interface a : control){
 			if (a == e){ // save ignorins
@@ -534,8 +398,6 @@ public class InterfacesController {
 			contr.setController(this);
 			giveIdName(contr);
 			control.add(contr);
-//		onAdd(contr);
-//		viewRequireUpdate = true;
 			interfaceViewHasChanged(contr); // kad pranestu...
 			contr.frustumUpdateId = -1;
 			return true;
@@ -631,8 +493,6 @@ public class InterfacesController {
 		if (!rec){
 			release();
 		}
-//		if (e != null)
-//			e.actionChanged(rec);
 		for (int a = 0; a < actionListeners.size; a++){
 			actionListeners.get(a).actionChanged(rec);
 		}
@@ -824,17 +684,6 @@ public class InterfacesController {
 		requireCordsTranslation = require;
 	}
 
-	private void setCoordinates(Interface k, float screenX, float screenY){
-		mouseCoords.set(screenX, screenY, 0);
-		if (requireCordsTranslation) {
-			if (k.getPositioning() == Window.fixedView || (k.getPositioning() == Window.relativeView && positioning == Window.fixedView)) {
-				GdxPongy.getInstance().screenToFixedCoords(mouseCoords);
-			} else {
-				GdxPongy.getInstance().screenToWorldCoords(mouseCoords);
-			}
-		}
-	}
-
 	protected void keyTyped(Interface c, char e){}
 
 	public boolean keyTyped(char e){
@@ -866,11 +715,15 @@ public class InterfacesController {
 
 	public boolean touchDown(float x, float y, int pointer, int button) {
 		if (react){
-//			disableFocus(); // disable focus.
+            coordTranslator.reset(); // Preparing...
 			for (int a = control.size()-1; a >= 0; a--){
 				Interface k = control.get(a);
 				if (k.isVisibleOnScreen()){
-					setCoordinates(k, x, y);
+//					setCoordinates(k, x, y);
+                    coordTranslator.prepareCoords(k, x, y); // Now it does it's magic. No duplicates.
+                    // Test purposes for inputs.
+//                    TestPointClick click = new TestPointClick();
+//                    click.pointDraw(mouseCoords.x, mouseCoords.y, coordTranslator.isPositionFixed(k));
 					if (k.touchDown(mouseCoords.x, mouseCoords.y, pointer, button)){
 						touchDown(k, mouseCoords.x, mouseCoords.y, pointer, button);
 						return true;
@@ -930,10 +783,12 @@ public class InterfacesController {
 	public boolean mouseMoved(float x, float y) {
 		boolean isActive = false; // kad prasuktu pro visus ir atleistu uzejima.
 		if (react){
+            coordTranslator.reset(); // Preparing...
 			for (int a = control.size()-1; a >= 0; a--){
 				Interface k = control.get(a);
 				if (k.isVisibleOnScreen()){
-					setCoordinates(k, x, y);
+//					setCoordinates(k, x, y);
+                    coordTranslator.prepareCoords(k, x, y); // No duplicate projection.
 					if (isActive){
 						k.release();
 					}else if (k.mouseMoved(mouseCoords.x, mouseCoords.y)){
@@ -967,10 +822,12 @@ public class InterfacesController {
 
 	public boolean tap(float x, float y, int count, int button) {
 		if (react){
+            coordTranslator.reset();
 			for (int a = control.size()-1; a >= 0; a--){
 				Interface k = control.get(a);
 				if (k.isVisibleOnScreen()){
-					setCoordinates(k, x, y);
+//					setCoordinates(k, x, y);
+                    coordTranslator.prepareCoords(k, x, y);
 					if (k.tap(mouseCoords.x, mouseCoords.y, count, button)){
 						tap(k, mouseCoords.x, mouseCoords.y, count, button);
 						return true;
@@ -985,10 +842,12 @@ public class InterfacesController {
 
 	public boolean longPress(float x, float y) {
 		if (react){
+            coordTranslator.reset();
 			for (int a = control.size()-1; a >= 0; a--){
 				Interface k = control.get(a);
 				if (k.isVisibleOnScreen()){
-					setCoordinates(k, x, y);
+//					setCoordinates(k, x, y);
+                    coordTranslator.prepareCoords(k, x, y);
 					if (k.longPress(mouseCoords.x, mouseCoords.y)){
 						longPress(k, mouseCoords.x, mouseCoords.y);
 						return true;
@@ -1020,10 +879,12 @@ public class InterfacesController {
 
 	public boolean pan(float x, float y, float deltaX, float deltaY) {
 		if (react){
+            coordTranslator.reset();
 			for (int a = control.size()-1; a >= 0; a--){
 				Interface k = control.get(a);
 				if (k.isVisibleOnScreen() && k.isEnabled()){
-					setCoordinates(k, x, y);
+//					setCoordinates(k, x, y);
+                    coordTranslator.prepareCoords(k, x, y);
 					if (k.pan(mouseCoords.x, mouseCoords.y, deltaX, deltaY)){
 						pan(k, mouseCoords.x, mouseCoords.y, deltaX, deltaY);
 						return true;
@@ -1038,10 +899,12 @@ public class InterfacesController {
 
 	public boolean panStop(float x, float y, int pointer, int button) {
 		if (react){
+            coordTranslator.reset();
 			for (int a = control.size()-1; a >= 0; a--){
 				Interface k = control.get(a);
 				if (k.isVisibleOnScreen()){
-					setCoordinates(k, x, y);
+//					setCoordinates(k, x, y);
+                    coordTranslator.prepareCoords(k, x, y);
 					if (k.panStop(mouseCoords.x, mouseCoords.y, pointer, button)){
 						panStop(k, mouseCoords.x, mouseCoords.y, pointer, button);
 						return true;
@@ -1074,41 +937,17 @@ public class InterfacesController {
 
 	public boolean pinch(Vector2 initialPointer1, Vector2 initialPointer2, Vector2 pointer1, Vector2 pointer2) {
 		if (react){
+            coordTranslator.reset(); // Preparing for the translation.
 			for (int a = control.size()-1; a >= 0; a--){
 				Interface k = control.get(a);
 				if (k.isVisibleOnScreen()){
-					if (requireCordsTranslation) {
-						Engine p = GdxPongy.getInstance();
-						if (k.getPositioning() == Window.fixedView || (k.getPositioning() == Window.relativeView && positioning == Window.fixedView)) {
-							mouseCoords.set(initialPointer1, 0); // kiekvieno vectoriaus cord pakeitimas į fixed world kordinates.
-							p.screenToFixedCoords(mouseCoords);
-							initialPointer1.set(mouseCoords.x, mouseCoords.y);
-							mouseCoords.set(initialPointer2, 0);
-							p.screenToFixedCoords(mouseCoords);
-							initialPointer2.set(mouseCoords.x, mouseCoords.y);
-							mouseCoords.set(pointer1, 0);
-							p.screenToFixedCoords(mouseCoords);
-							pointer1.set(mouseCoords.x, mouseCoords.y);
-							mouseCoords.set(pointer2, 0);
-							p.screenToFixedCoords(mouseCoords);
-							pointer2.set(mouseCoords.x, mouseCoords.y);
-						} else {
-							mouseCoords.set(initialPointer1, 0); // kiekvieno vectoriaus cord pakeitimas į world kordinates.
-							p.screenToWorldCoords(mouseCoords);
-							initialPointer1.set(mouseCoords.x, mouseCoords.y);
-							mouseCoords.set(initialPointer2, 0);
-							p.screenToWorldCoords(mouseCoords);
-							initialPointer2.set(mouseCoords.x, mouseCoords.y);
-							mouseCoords.set(pointer1, 0);
-							p.screenToWorldCoords(mouseCoords);
-							pointer1.set(mouseCoords.x, mouseCoords.y);
-							mouseCoords.set(pointer2, 0);
-							p.screenToWorldCoords(mouseCoords);
-							pointer2.set(mouseCoords.x, mouseCoords.y);
-						}
-					}
-					if (k.pinch(initialPointer1, initialPointer2, pointer1, pointer2)){
-						pinch(k, initialPointer1, initialPointer2, pointer1, pointer2);
+                    // Vector info will be transfered to coordTransaltor intances. Not touching original
+                    // vectors.
+                    coordTranslator.prepareVectors(k, initialPointer1, initialPointer2, pointer1, pointer2);
+					if (k.pinch(coordTranslator.vector1, coordTranslator.vector2, coordTranslator.vector3,
+                            coordTranslator.vector4)){
+						pinch(k, coordTranslator.vector1, coordTranslator.vector2, coordTranslator.vector3,
+                            coordTranslator.vector4);
 						return true;
 					}
 				}
@@ -1127,4 +966,160 @@ public class InterfacesController {
 			}
 		}
 	}
+
+    private class CoordTranslator{
+        private final Engine p = Engine.getInstance();
+        private float absoluteX, absoluteY;
+        private float fixedX, fixedY;
+
+        private boolean isAbsolutePrepared = false, isFixedPrepared = false;
+
+        // for pinch only.
+        private final Vector2 vector1, vector2, vector3, vector4;
+
+        private CoordTranslator(){
+            vector1 = new Vector2();
+            vector2 = new Vector2();
+            vector3 = new Vector2();
+            vector4 = new Vector2();
+        }
+
+        /** Gives absolute or fixed coords. Does not project multiple times. */
+        private void prepareCoords(Interface k, float screenX, float screenY){
+            if (requireCordsTranslation){
+                if (isPositionFixed(k)){
+                    // fixed coords.
+                    if (isFixedPrepared) // Coords were already prepared.
+                        mouseCoords.set(fixedX, fixedY, 0);
+                    else {
+                        // Preparing coords.
+                        p.screenToFixedCoords(mouseCoords.set(screenX, screenY, 0));
+                        fixedX = mouseCoords.x;
+                        fixedY = mouseCoords.y;
+                        isFixedPrepared = true;
+                    }
+                }else {
+                    // absolute coords.
+                    if (isAbsolutePrepared) // Already set.
+                        mouseCoords.set(absoluteX, absoluteY, 0);
+                    else {
+                        p.screenToWorldCoords(mouseCoords.set(screenX, screenY, 0));
+                        absoluteX = mouseCoords.x;
+                        absoluteY = mouseCoords.y;
+                        isAbsolutePrepared = true;
+                    }
+                }
+            }else { // giving same coords. No need to check. Faster approach just to set it.
+                mouseCoords.set(screenX, screenY, 0);
+            }
+        }
+
+        private void prepareVectors(Interface k, Vector2 initialPointer1, Vector2 initialPointer2, Vector2 pointer1, Vector2 pointer2){
+            if (requireCordsTranslation){
+                if (isPositionFixed(k)){
+                    // Here preparing fixed.
+                    // Knowing that interfaces goes in order - from fixed down to absolute, so
+                    // absolute will go last. It will never mix fixed and absolute order.
+                    if (!isFixedPrepared){
+                        // We only need to do something if it is not ready.
+                        // If it was prepared, than it is already set.
+                        p.screenToFixedCoords(mouseCoords.set(initialPointer1, 0));
+                        setVector(vector1);
+                        p.screenToFixedCoords(mouseCoords.set(initialPointer2, 0));
+                        setVector(vector2);
+                        p.screenToFixedCoords(mouseCoords.set(pointer1, 0));
+                        setVector(vector3);
+                        p.screenToFixedCoords(mouseCoords.set(pointer2, 0));
+                        setVector(vector4);
+
+                        isFixedPrepared = true;
+                    }
+                }else {
+                    // Here preparing absolute.
+                    if (!isAbsolutePrepared){
+                        // Same as fixed. This must come after fixed coords was used. It will
+                        // never go for fixed again in this loop.
+                        p.screenToWorldCoords(mouseCoords.set(initialPointer1, 0));
+                        setVector(vector1);
+                        p.screenToWorldCoords(mouseCoords.set(initialPointer2, 0));
+                        setVector(vector2);
+                        p.screenToWorldCoords(mouseCoords.set(pointer1, 0));
+                        setVector(vector3);
+                        p.screenToWorldCoords(mouseCoords.set(pointer2, 0));
+                        setVector(vector4);
+
+                        isAbsolutePrepared = true;
+                    }
+                }
+            }else { // Take same values.
+                vector1.set(initialPointer1);
+                vector2.set(initialPointer2);
+                vector3.set(pointer1);
+                vector4.set(pointer2);
+            }
+        }
+
+        /** Setting given Vector by mouseCoords. Ignoring z value. */
+        private void setVector(Vector2 keeper){
+            keeper.set(mouseCoords.x, mouseCoords.y);
+        }
+
+        /** Postion of the given interface. Easier access to it's positioning. */
+        private boolean isPositionFixed(Interface k){
+            return k.getPositioning() == Window.fixedView || (k.getPositioning() == Window.relativeView && positioning == Window.fixedView);
+        }
+
+        /** This must be called before any coord translation event. */
+        private void reset(){
+            isAbsolutePrepared = false;
+            isFixedPrepared = false;
+        }
+    }
+
+    // Only for test purposes to see where is input pressed.
+//    private class TestPointClick implements MainDraw {
+//        private final Counter counter;
+//        float x, y;
+//        private final Engine p = Engine.getInstance();
+//
+//        public TestPointClick(){
+//            counter = new Counter();
+//            counter.setCounterListiner(new Counter.CounterListener() {
+//                @Override
+//                public void finished(float currentValue) {
+//                    drop();
+//                }
+//
+//                @Override
+//                public boolean cancel(int reason) {
+//                    drop();
+//                    return false;
+//                }
+//            });
+//        }
+//
+//        public void pointDraw(float x, float y, boolean fixDraw){
+//            this.x = x;
+//            this.y = y;
+//            counter.startCount(0, 1, 5);
+//            TopPainter.addPaintOnTop(this, fixDraw);
+//        }
+//
+//        @Override
+//        public void draw() {
+//            p.noStroke();
+//            p.fill(0xAAFFA500);
+//
+//            p.ellipse(x, y, 20, 20);
+//        }
+//
+//        @Override
+//        public boolean drop(int reason) {
+//            return false;
+//        }
+//
+//        private void drop(){
+//            TopPainter.removeTopPaint(this);
+//        }
+//    }
 }

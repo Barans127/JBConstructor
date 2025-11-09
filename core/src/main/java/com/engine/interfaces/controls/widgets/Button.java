@@ -31,7 +31,7 @@ public class Button extends TextBlock{
 
 		extendSize = style.extendWidth;
 	}
-	
+
 	public Button(){
 		this(new ButtonStyle());
 	}
@@ -46,6 +46,12 @@ public class Button extends TextBlock{
 
 	@Override
 	protected void isvaizda(float x, float y){
+        // TEST. To see where is button field.
+//        p.stroke(0);
+//        p.noFill();
+//        Vector2 pos = getPosition();
+//        p.rect(x, y, getWidth(), getHeight());
+
 		Drawable looks;
 		p.tint(statusColor);
 		if (getStatus() == OVER){
@@ -105,7 +111,7 @@ public class Button extends TextBlock{
 	public void setExtendSize(boolean extendSize){
 		this.extendSize = extendSize;
 	}
-	
+
 	@Override
 	public boolean keyDown(int e){
 		if (super.keyDown(e))

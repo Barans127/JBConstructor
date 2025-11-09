@@ -30,6 +30,10 @@ import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.Pool;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.badlogic.gdx.utils.viewport.FillViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.engine.core.Engine;
 import com.engine.core.ErrorHandler;
@@ -172,8 +176,6 @@ public abstract class GdxPongy extends ApplicationAdapter {
         }
 
         // kameros ir viewport kurimas.
-//        width = (int) Engine.getWithRez(worldSizeX);
-//        height = (int) Engine.getWithRez(worldSizeY);
         absoluteCamera = new OrthographicCamera();
         absoluteCamera.position.set(worldSizeX/2, worldSizeY/2, 0);
         absoluteCamera.update();
@@ -181,18 +183,33 @@ public abstract class GdxPongy extends ApplicationAdapter {
         fixedCamera.position.set(worldSizeX/2, worldSizeY/2, 0);
         fixedCamera.update();
 
-        // nustatom fixed kameros world matoma dydi.
-//        fixedCamera.viewportWidth = worldSizeX;
-//        fixedCamera.viewportHeight = worldSizeY;
-//        view = new StretchViewport(width, height, absoluteCamera);
+        // Max world size in case of extended viewport.
         float maxX = Math.max(worldSizeX, Resources.getPropertyFloat("maxWorldSizeX", 0));
         float maxY = Math.max(worldSizeY, Resources.getPropertyFloat("maxWorldSizeY", 0));
-        view = new ExtendViewport(worldSizeX, worldSizeY, maxX, maxY, absoluteCamera);
+
+        // Viewport creation. Must always match cameras viewport. DO NOT USE DIFFERENT VIEWPORTS!
+        // Using different viewports will cause inputs to fail.
+        String viewportProperty = Resources.getProperty("cameraViewport", "extend");
+        if (viewportProperty.equalsIgnoreCase("stretch")){
+            fixedView = new StretchViewport(worldSizeX, worldSizeY, fixedCamera);
+            view = new StretchViewport(worldSizeX, worldSizeY, absoluteCamera);
+        }else if (viewportProperty.equalsIgnoreCase("fit")){
+            fixedView = new FitViewport(worldSizeX, worldSizeY, fixedCamera);
+            view = new FitViewport(worldSizeX, worldSizeY, absoluteCamera);
+        } else if (viewportProperty.equalsIgnoreCase("fill")){
+            fixedView = new FillViewport(worldSizeX, worldSizeY, fixedCamera);
+            view = new FillViewport(worldSizeX, worldSizeY, absoluteCamera);
+        }else if (viewportProperty.equalsIgnoreCase("screen")){
+            fixedView = new ScreenViewport(fixedCamera);
+            view = new ScreenViewport(absoluteCamera);
+        }else {
+            fixedView = new ExtendViewport(worldSizeX, worldSizeY, maxX, maxY, fixedCamera);
+            view = new ExtendViewport(worldSizeX, worldSizeY, maxX, maxY, absoluteCamera);
+        }
+        // Setting or it might give 0 values. Need those values for font creation.
         // This is used to create default font. Without it we would get division by zero when
         // creating new font as it uses this params, so just set those parameters to not divide by 0.
         view.setWorldSize(worldSizeX, worldSizeY);
-
-        fixedView = new ExtendViewport(worldSizeX, worldSizeY, maxX, maxY, fixedCamera);
         fixedView.setWorldSize(worldSizeX, worldSizeY);
 //        view = new ScreenViewport(absoluteCamera);
         InputMultiplexer e = new InputMultiplexer(new InputTranslator(this), new GestureDetector(new GestureTranslator(this)));
@@ -437,7 +454,7 @@ public abstract class GdxPongy extends ApplicationAdapter {
      * @return same vector with changed values.
      */
     public Vector3 screenToWorldCoords(Vector3 screenCoords){
-        return absoluteCamera.unproject(screenCoords, view.getScreenX(), view.getScreenY(), view.getScreenWidth(), view.getScreenHeight());
+        return view.unproject(screenCoords);
     }
 
     /**
@@ -446,29 +463,38 @@ public abstract class GdxPongy extends ApplicationAdapter {
      * @return vector with changed values.
      */
     public Vector3 screenToFixedCoords(Vector3 screenCoords){
-        return fixedCamera.unproject(screenCoords, view.getScreenX(), view.getScreenY(), view.getScreenWidth(), view.getScreenHeight());
+        return fixedView.unproject(screenCoords);
     }
 
     /** @return vector with fixed coordinates. */
     public Vector3 screenToFixedCoords(float screenX, float screenY){
-        return fixedCamera.unproject(coordTranslator.set(screenX, screenY, 0), view.getScreenX(), view.getScreenY(), view.getScreenWidth(), view.getScreenHeight());
+        return fixedView.unproject(coordTranslator.set(screenX, screenY, 0));
     }
 
     /** @return vector with world coordinates */
     public Vector3 screenToWorldCoords(float screenX, float screenY){
-        return absoluteCamera.unproject(coordTranslator.set(screenX, screenY, 0), view.getScreenX(), view.getScreenY(), view.getScreenWidth(), view.getScreenHeight());
+//        return absoluteCamera.unproject(coordTranslator.set(screenX, screenY, 0), view.getScreenX(), view.getScreenY(), view.getScreenWidth(), view.getScreenHeight());
+//        return absoluteCamera.unproject(coordTranslator.set(screenX, screenY, 0));
+        return view.unproject(coordTranslator.set(screenX, screenY, 0));
+//        return absoluteCamera.unproject(coordTranslator.set(screenX, screenY, 0),
+//            fixedView.getScreenX(), fixedView.getScreenY(), fixedView.getScreenWidth(), fixedView.getScreenHeight());
     }
 
     /** @return vector with screen coordinates. y-axis pointing upwards. If you want to use it again
      * and translate to world coordinates you will have to do this: getScreenHeight() - y. */
     public Vector3 worldToScreenCoords(float worldX, float worldY){
-        return absoluteCamera.project(coordTranslator.set(worldX, worldY, 0), view.getScreenX(), view.getScreenY(), view.getScreenWidth(), view.getScreenHeight());
+//        return absoluteCamera.project(coordTranslator.set(worldX, worldY, 0), view.getScreenX(), view.getScreenY(), view.getScreenWidth(), view.getScreenHeight());
+//        return absoluteCamera.project(coordTranslator.set(worldX, worldY, 0));
+        return view.project(coordTranslator.set(worldX, worldY, 0));
+//        return absoluteCamera.project(coordTranslator.set(worldX, worldY, 0),
+//            fixedView.getScreenX(), fixedView.getScreenY(), fixedView.getScreenWidth(), fixedView.getScreenHeight());
     }
 
     /** @return vector with screen coordinates. y-axis pointing upwards. . If you want to use it again
      * and translate to world coordinates you will have to do this: getScreenHeight() - y.*/
     public Vector3 fixedToScreendCoords(float fixedX, float fixedY){
-        return fixedCamera.project(coordTranslator.set(fixedX, fixedY, 0), view.getScreenX(), view.getScreenY(), view.getScreenWidth(), view.getScreenHeight());
+//        return fixedCamera.project(coordTranslator.set(fixedX, fixedY, 0));
+        return fixedView.project(coordTranslator.set(fixedX, fixedY, 0));
     }
 
     /** Translates absolute coordinates to fixed coordinates. */
@@ -555,6 +581,8 @@ public abstract class GdxPongy extends ApplicationAdapter {
         Rectangle scissor = scissorPool.obtain();
         tmpScissorArea.set(x, y, width, height);
         OrthographicCamera e = currentActiveCamera == 0 ? absoluteCamera : fixedCamera;
+        // There is also a viewport, so it must use it.
+        Viewport view = currentActiveCamera == 0 ? this.view : fixedView;
         ScissorStack.calculateScissors(e, view.getScreenX(), view.getScreenY(), view.getScreenWidth(), view.getScreenHeight(),
                 batch.getTransformMatrix(), tmpScissorArea, scissor);
         // test
@@ -600,12 +628,14 @@ public abstract class GdxPongy extends ApplicationAdapter {
 //        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         currentActiveCamera = 0;
         batch.setProjectionMatrix(absoluteCamera.combined);
+//        view.apply();
 //        g.setProjectionMatrix(absoluteCamera.combined);
         batch.begin();
         draw();
         batch.end();
         currentActiveCamera = 1;
         batch.setProjectionMatrix(fixedCamera.combined);
+//        fixedView.apply();
 //        g.setProjectionMatrix(fixedCamera.combined);
         batch.begin();
         fixedDraw();
@@ -659,8 +689,10 @@ public abstract class GdxPongy extends ApplicationAdapter {
             // atnaujinam tik po viewport atnaujinimo.
 //            fixedCamera.viewportWidth = view.getWorldWidth();
 //            fixedCamera.viewportHeight = view.getWorldHeight();
-//            // centruojam.
+            // centruojam.
 //            fixedCamera.position.set(worldSizeX/2, worldSizeY/2, 0);
+//            fixedCamera.position.set
+//            fixedCamera.position.set(fixedCamera.viewportWidth/2, fixedCamera.viewportHeight/2, 0);
 //            fixedCamera.update();
             fixedView.update(width, height, false);
         }

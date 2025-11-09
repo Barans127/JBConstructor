@@ -1,3 +1,11 @@
+2025-11-07 (Location: JBConstructor project)
+Engine version: 1.05
+-Now camera can be set with StretchViewport or ExtendedViewport, or any other viewPort. It needs to be set in config file
+using "cameraViewport". Values can be extend, stretch, fit, fill, screen.
+-Changed how "InterfaceController" handled inputs. It used camera projection on every single widget. Optimized
+code to not do that every single time. It only needs to be done once or twice (depending if there is absolute
+and fixed widgets).
+
 2025-10-29 (Location: Roll N Go project)
 Engine version: 1.04
 -FixedCamera now uses ExtendedViewport.

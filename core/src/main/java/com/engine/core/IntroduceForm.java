@@ -15,8 +15,8 @@ import com.engine.interfaces.controls.widgets.Label;
  * Atsisakyta visu loader galimybiu, nes jos vistiek nelabai naudingos.
  * Sita forma rodys tik viena karta pries pradzia, pries startup listeneerio iskvietima. */
 public class IntroduceForm implements Window {
-	private InterfacesController v; // label neveiks be kontrolerio
-	private Engine p; // pats varikliukas
+	private final InterfacesController v; // label neveiks be kontrolerio
+	private final Engine p; // pats varikliukas
 	private static StartListener start; // listener, per kuri vartotojas turetu perjunkt i kita forma, pats kalts, jei neperjunks
 //	private int timer; // dar neaisku kam panaudot, gal jei neperjunge vartotojs i kita forma, pranest jam?
 

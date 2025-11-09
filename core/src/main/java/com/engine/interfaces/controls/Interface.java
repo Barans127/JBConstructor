@@ -22,12 +22,11 @@ import com.engine.interfaces.listeners.inputListeners.ScrolledListener;
 import com.engine.interfaces.listeners.inputListeners.TapListener;
 import com.engine.interfaces.listeners.inputListeners.TouchDownListener;
 import com.engine.interfaces.listeners.inputListeners.ZoomListener;
-import com.engine.root.GdxPongy;
 
 public abstract class Interface implements Inputs{
 	// main kintamieji
 //	protected final float r = Engine.getSize();
-	protected final Engine p = GdxPongy.getInstance();
+	protected final Engine p = Engine.getInstance();
 	protected InterfacesController v;
 	protected boolean update;
 	private String idName;
@@ -837,7 +836,7 @@ public abstract class Interface implements Inputs{
 //		public int positioning = Window.relativeView;
 		public Position positioning = Position.relative;
 		public int normalColor = 0xFFFFFFFF, pressedColor = 0xFFFFFFFF, // netintins.
-				onColor = 0xFFFFFFFF, disabledColor = GdxPongy.color(80,80,80, 255);
+				onColor = 0xFFFFFFFF, disabledColor = Engine.color(80,80,80, 255);
 
 		/** creats new interface with this style */
 		public abstract Interface createInterface();
