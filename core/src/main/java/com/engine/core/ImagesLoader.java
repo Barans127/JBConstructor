@@ -7,12 +7,12 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.engine.animations.spriter.SpriterDrawable;
-import com.engine.interfaces.controls.Form;
-import com.engine.interfaces.controls.TopPainter;
-import com.engine.interfaces.controls.Window;
-import com.engine.interfaces.controls.widgets.LoadIcon;
-import com.engine.interfaces.controls.widgets.ProgressBar;
-import com.engine.interfaces.listeners.MainDraw;
+import com.engine.ui.controls.Form;
+import com.engine.ui.controls.TopPainter;
+import com.engine.ui.controls.Window;
+import com.engine.ui.controls.widgets.LoadIcon;
+import com.engine.ui.controls.widgets.ProgressBar;
+import com.engine.ui.listeners.MainDraw;
 
 /** This class allows images to be added to Resources list, and load images few images per frame to avoid freezing main thread */
 public class ImagesLoader implements MainDraw{

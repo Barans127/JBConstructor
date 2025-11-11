@@ -9,7 +9,7 @@ import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.utils.Pool;
 import com.engine.animations.Counter;
-import com.engine.interfaces.controls.Window;
+import com.engine.ui.controls.Window;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -23,7 +23,8 @@ import java.util.Set;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
-/** Some useful or useless methods. */
+/** Some useful or useless methods.
+ * You may take counter instances from here. */
 public final class MoreUtils {
     private final static Pool<Counter> counters;
 

@@ -4,9 +4,9 @@ import com.badlogic.gdx.InputProcessor;
 
 /** Handling desktop inputs. Key presses and mouse movement. Touch inputs and gestures are handled in gestureDetector. */
 public class InputTranslator implements InputProcessor {
-	private final GdxPongy p;
+	private final GdxWrapper p;
 
-	public InputTranslator(GdxPongy p) {
+	public InputTranslator(GdxWrapper p) {
 		this.p = p;
 	}
 

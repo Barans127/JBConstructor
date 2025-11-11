@@ -7,7 +7,8 @@ import java.lang.Thread.UncaughtExceptionHandler;
 
 import javax.swing.JOptionPane;
 
-
+/** Was used to show errors while still in app. Now it should be changed to something better... */
+@Deprecated
 public class ErrorHandler implements UncaughtExceptionHandler {
 //	private static Engine p;
 //	private static DaToast e;

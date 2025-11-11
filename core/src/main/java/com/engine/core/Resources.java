@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
@@ -24,7 +23,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
-// statine klase. viskas static.
+/** Class for holding app resources. These resources will be disposed automatically when app will
+ * be closed. */
 public final class Resources {
     // programos kalba.
 //    private static StringsHolder lang;

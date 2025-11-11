@@ -7,6 +7,8 @@ import com.engine.core.ErrorMenu;
 import java.util.HashMap;
 import java.util.Set;
 
+/** Config file reader. For files with .conf
+ * Format -> valueName=value*/
 public class PropertiesReader {
     private HashMap<String, String> values;
 
@@ -30,7 +32,7 @@ public class PropertiesReader {
      * @param append will append values. if false list will be cleared before adding new values.*/
     public void load(FileHandle file, boolean append){
         if (!file.exists()){
-            GdxPongy.getInstance().setError("PropertiesReader: Cannot locate file: " + file.path(), ErrorMenu.ErrorType.MissingResource);
+            GdxWrapper.getInstance().setError("PropertiesReader: Cannot locate file: " + file.path(), ErrorMenu.ErrorType.MissingResource);
             return;
         }
         if (!append){
@@ -63,7 +65,7 @@ public class PropertiesReader {
                 this.values.put(key, value);
             }
         }catch (GdxRuntimeException ex){
-            GdxPongy.getInstance().setError("Error occured while loading properties. " + ex.getMessage(), ErrorMenu.ErrorType.UnknowError);
+            GdxWrapper.getInstance().setError("Error occured while loading properties. " + ex.getMessage(), ErrorMenu.ErrorType.UnknowError);
         }
     }
 

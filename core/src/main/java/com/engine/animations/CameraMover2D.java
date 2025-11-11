@@ -6,8 +6,8 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.engine.core.Engine;
-import com.engine.interfaces.controls.TopPainter;
-import com.engine.interfaces.listeners.MainDraw;
+import com.engine.ui.controls.TopPainter;
+import com.engine.ui.listeners.MainDraw;
 
 /** Update to {@link CameraSlider}. Reworked inside workings to be more efficient.
  * This class enables animated camera movement. It can:

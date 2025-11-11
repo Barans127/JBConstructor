@@ -2,8 +2,8 @@ package com.engine.animations;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.engine.core.Engine;
-import com.engine.interfaces.controls.TopPainter;
-import com.engine.interfaces.listeners.MainDraw;
+import com.engine.ui.controls.TopPainter;
+import com.engine.ui.listeners.MainDraw;
 
 /** Shakes camera. Creates effect as earth quake or something that was hit very hard. */
 public class CameraShaker implements MainDraw {

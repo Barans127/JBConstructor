@@ -2,11 +2,12 @@ package com.engine.root;
 
 import com.badlogic.gdx.math.Vector2;
 import com.engine.core.MoreUtils;
-import com.engine.interfaces.controls.TopPainter;
-import com.engine.interfaces.listeners.MainDraw;
+import com.engine.ui.controls.TopPainter;
+import com.engine.ui.listeners.MainDraw;
 
 /**
- * Created by jbara on 2017-06-03.
+ * Swipe velocity after user swipe. It creates animation that it is still going.
+ * Still in development...
  */
 
 public class SwipeVelocity implements MainDraw{

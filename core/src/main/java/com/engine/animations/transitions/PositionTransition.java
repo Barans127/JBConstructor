@@ -2,15 +2,15 @@ package com.engine.animations.transitions;
 
 import com.badlogic.gdx.math.Vector2;
 import com.engine.animations.Counter;
-import com.engine.interfaces.controls.Interface;
+import com.engine.ui.controls.Control;
 
 /** Position transitions allows you to change position smoothly (from one value to another), over a given duration.
- * {@link Vector2} and {@link Interface} positions can be moved smoothly. */
+ * {@link Vector2} and {@link Control} positions can be moved smoothly. */
 public class PositionTransition {
     private Counter counter;
 
     private Vector2 vectorPosition;
-    private Interface interfacePosition;
+    private Control controlPosition;
 
     private boolean isInterface;
     private boolean isMoving;
@@ -28,8 +28,8 @@ public class PositionTransition {
             public void update(float oldValue, float currentValue) {
                 Object e;
                 if (isInterface){
-                    interfacePosition.setPosition(startX + difX*currentValue, startY + difY*currentValue);
-                    e = interfacePosition;
+                    controlPosition.setPosition(startX + difX*currentValue, startY + difY*currentValue);
+                    e = controlPosition;
                 }else {
                     vectorPosition.set(startX + difX*currentValue, startY + difY*currentValue);
                     e = vectorPosition;
@@ -37,7 +37,7 @@ public class PositionTransition {
                 step(e);
                 if (currentValue == counter.getGoalValue()){ // viskas baige darba.
                     vectorPosition = null;
-                    interfacePosition = null;
+                    controlPosition = null;
                     reachedGoal(e);
                 }
             }
@@ -48,9 +48,9 @@ public class PositionTransition {
      * @param x to transit x cord
      * @param y to transit y cord
      * @param time time in seconds how long transition should occur.*/
-    public void transit(Interface e, float x, float y, float time){
+    public void transit(Control e, float x, float y, float time){
         isInterface = true;
-        interfacePosition = e;
+        controlPosition = e;
         Vector2 pos = e.getPosition();
         startX = pos.x; // pasizymim kur pradzios stovejimas buvo.
         startY = pos.y;

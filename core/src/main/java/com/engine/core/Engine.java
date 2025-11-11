@@ -6,14 +6,15 @@ import com.badlogic.gdx.utils.Disposable;
 import com.engine.animations.FadeAway;
 import com.engine.animations.SwitchAnimation;
 import com.engine.core.ErrorMenu.ErrorType;
-import com.engine.interfaces.controls.TopPainter;
-import com.engine.interfaces.controls.Window;
-import com.engine.root.GdxPongy;
+import com.engine.ui.controls.TopPainter;
+import com.engine.ui.controls.Window;
+import com.engine.root.GdxWrapper;
 
 import java.util.HashMap;
 import java.util.Set;
 
-public class Engine extends GdxPongy { // Testas..
+/** Main Engine class. Controls whole Engine framework - rendering, drawing, form and input handling. */
+public class Engine extends GdxWrapper {
 
 	// main kintamieji.
 	private static Engine main;

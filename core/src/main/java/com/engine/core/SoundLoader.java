@@ -7,8 +7,10 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.engine.interfaces.controls.widgets.ProgressBar;
+import com.engine.ui.controls.widgets.ProgressBar;
 
+/** Loads gives sounds. Can be loaded from .txt file.
+ *  Inside .txt file format for loading -> filePath : (0-sound, 1-music) \n */
 public class SoundLoader {
     // lists.
     private Array<String> path, name;

@@ -9,11 +9,11 @@ import com.engine.core.Engine;
 import com.engine.core.ImagesLoader;
 import com.engine.core.Resources;
 import com.engine.core.StartListener;
-import com.engine.interfaces.controls.Toast;
-import com.jbconstructor.main.forms.StartForm;
-import com.jbconstructor.main.managers.Project;
-import com.jbconstructor.main.managers.ProjectLoader;
-import com.jbconstructor.main.managers.SaveManager;
+import com.engine.ui.controls.Toast;
+import com.jbconstructor.editor.forms.StartForm;
+import com.jbconstructor.editor.managers.Project;
+import com.jbconstructor.editor.managers.ProjectLoader;
+import com.jbconstructor.editor.managers.SaveManager;
 
 /** Launches the desktop (LWJGL3) application. */
 public class Lwjgl3Launcher {

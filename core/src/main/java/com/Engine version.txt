@@ -1,12 +1,18 @@
-2025-11-07 (Location: JBConstructor project)
+2025-11-07
 Engine version: 1.05
 -Now camera can be set with StretchViewport or ExtendedViewport, or any other viewPort. It needs to be set in config file
 using "cameraViewport". Values can be extend, stretch, fit, fill, screen.
 -Changed how "InterfaceController" handled inputs. It used camera projection on every single widget. Optimized
 code to not do that every single time. It only needs to be done once or twice (depending if there is absolute
 and fixed widgets).
+-Added additional documentation to improve clarity.
+-Renamed "GdxPongy" to "GdxWrapper" for better clarity. To reflect its purpose better.
+-Package name "interfaces" renamed to "ui". Interface in Java means something else, so for clarity
+this word will not be used for package or classes names.
+-Class "Interface" renamed to "Control" for better understanding. This is a base class for widgets.
+-Class "InterfaceController" renamed to "ControlHost" for better clarity.
 
-2025-10-29 (Location: Roll N Go project)
+2025-10-29
 Engine version: 1.04
 -FixedCamera now uses ExtendedViewport.
 -Removed "getTimeFrame" from Engine which was final int variable set to 60. Why do we even needed this?
@@ -20,7 +26,7 @@ now it is gone.
 -Constructor a bit adjusted documentation. A bit more info in several methods.
 -ImagesLoader replaced GdxPongy.getInstance to Engine.getInstance.
 
-2025-10-22 (Location: JumpyCow project)
+2025-10-22
 Engine version: 1.03
 -In Resources class was added SoundController instance. It is optional, so in order for this class to manage it you will need to
 call "initializeSoundController". To get instance you need to call "getSoundController". SoundController instance will be automatically
@@ -29,17 +35,17 @@ disposed when application is closed.
 -Fixed ProgressBar drawing bug with angle. Now it draws as correctly as it should no matter what angle it is.
 -Engine's "setError" methods marked as deprecated. Use normal throw error methods.
 
-2025-10-20 (Location: JBConstructor project)
+2025-10-20
 Engine version: 1.02
 -Fixed default font loading. ViewPort now updates it's world coordinates which are used
 in default font loading. No more division from 0.
 
-2025-10-15 (Location: Roll N Go project)
+2025-10-15
 Engine version: 1.01
 -InputProcessor changed "scrolled(int amount)" to "scrolled(float amountX, float amountY)". It caused engine to fail to start.
 Fixed implementation inside classes: "Window", "TopPainter", "Inputs", "Form", "InterfaceController", "Interface", "Panel", "PopMeniu",
 "ScrollView", "TabControl",
--"Form" from com.engine.interfaces "scrolled" removed final tag. It can be overridden now.
+-"Form" class method "scrolled" removed final tag. It can be overridden now.
 -"Form", "InterfaceController", "PopUp" used "GdxPongy" to get Engine instance. Removed that and changed to "Engine.getInstance()".
 -Changed the way Resources works. Now calling load methods with already defined keys will not cause errors. It will be just
 ignored. It will log, that key already exists. Now this is user responsibility to not add multiple textures/TextureAtlases/
@@ -47,4 +53,6 @@ SpriteAnimations to same key. Best idea is not to create texture itself, but jus
 exists Disposable object will not be created twice.
 
 2025-10-14
+New logging. Old logging was lost.
+Resetting version to:
 Engine version: 1.0

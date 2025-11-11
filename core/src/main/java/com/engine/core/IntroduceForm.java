@@ -7,15 +7,15 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.engine.animations.Counter;
-import com.engine.interfaces.controls.InterfacesController;
-import com.engine.interfaces.controls.Window;
-import com.engine.interfaces.controls.widgets.Label;
+import com.engine.ui.controls.ControlHost;
+import com.engine.ui.controls.Window;
+import com.engine.ui.controls.widgets.Label;
 
 /* pervadinta is Loader i IntroduceForm. Nes realiai tokio loader nereikia...
  * Atsisakyta visu loader galimybiu, nes jos vistiek nelabai naudingos.
  * Sita forma rodys tik viena karta pries pradzia, pries startup listeneerio iskvietima. */
 public class IntroduceForm implements Window {
-	private final InterfacesController v; // label neveiks be kontrolerio
+	private final ControlHost v; // label neveiks be kontrolerio
 	private final Engine p; // pats varikliukas
 	private static StartListener start; // listener, per kuri vartotojas turetu perjunkt i kita forma, pats kalts, jei neperjunks
 //	private int timer; // dar neaisku kam panaudot, gal jei neperjunge vartotojs i kita forma, pranest jam?
@@ -27,7 +27,7 @@ public class IntroduceForm implements Window {
 
 	IntroduceForm(Engine p){
 		this.p = p;
-		v = new InterfacesController();
+		v = new ControlHost();
 		String path = Resources.getProperty("startingLogo", "null");
 		float width = 0, height = 0;
 		if (!path.equals("null")){

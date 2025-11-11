@@ -5,13 +5,15 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
-import com.engine.interfaces.controls.Form;
-import com.engine.interfaces.controls.views.ScrollView;
-import com.engine.interfaces.controls.widgets.Button;
-import com.engine.interfaces.controls.widgets.Label;
-import com.engine.interfaces.listeners.ClickListener;
-import com.engine.root.GdxPongy;
+import com.engine.ui.controls.Form;
+import com.engine.ui.controls.views.ScrollView;
+import com.engine.ui.controls.widgets.Button;
+import com.engine.ui.controls.widgets.Label;
+import com.engine.ui.listeners.ClickListener;
+import com.engine.root.GdxWrapper;
 
+/** Used to show errors without halting the app. Now it is not used. */
+@Deprecated
 public class ErrorMenu extends Form {
     private Engine p;
     //	private Button back;
@@ -59,7 +61,7 @@ public class ErrorMenu extends Form {
     @Override
     protected void fixBackground() {
         if (p == null) {
-            p = GdxPongy.getInstance();
+            p = GdxWrapper.getInstance();
             if (p == null) {
                 throw new RuntimeException("Main instance is not initialized");
             }
@@ -69,7 +71,7 @@ public class ErrorMenu extends Form {
             addErrorText(errors.get(a));
             errors.removeIndex(a);
         }
-        p.background(GdxPongy.color(237, 245, 168));
+        p.background(GdxWrapper.color(237, 245, 168));
     }
 
 //	@Override

@@ -15,7 +15,10 @@ import com.brashmonkey.spriter.Loader;
 import com.engine.core.Resources;
 
 /**
- * Created by jbara on 2017-02-23.
+ * Spiter animation loader. Used to load resources for animation.
+ * By default spriter animations would use only separate textures, which is not
+ * efficient, so using this loader it is possible to use packed resources into
+ * TextureAtlas.
  */
 
 public class SpriterLoader extends Loader<TextureRegion> implements Disposable {

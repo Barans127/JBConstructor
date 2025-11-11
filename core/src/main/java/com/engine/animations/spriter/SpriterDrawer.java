@@ -7,14 +7,13 @@ import com.brashmonkey.spriter.Drawer;
 import com.brashmonkey.spriter.Loader;
 import com.brashmonkey.spriter.Timeline;
 import com.engine.core.Engine;
-import com.engine.root.GdxPongy;
 
 /**
- * Created by jbara on 2017-02-23.
+ * Drawing animations created by Spriter application. Dynamic drawing.
  */
 
 public class SpriterDrawer extends Drawer<TextureRegion> implements Disposable {
-    private final Engine p = GdxPongy.getInstance();
+    private final Engine p = Engine.getInstance();
 
     /**
      * Creates a new drawer based on the given loader.

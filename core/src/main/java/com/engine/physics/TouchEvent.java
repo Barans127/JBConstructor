@@ -4,7 +4,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Contact;
 
 /**
- * Created by jbara on 2016-11-01.
+ * Collision detection from Box2D.
  */
 
 public interface TouchEvent {

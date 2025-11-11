@@ -4,11 +4,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.engine.core.Engine;
 import com.engine.core.Resources;
-import com.engine.interfaces.controls.Form;
-import com.engine.interfaces.controls.TopPainter;
-import com.engine.interfaces.controls.Window;
-import com.engine.interfaces.listeners.MainDraw;
+import com.engine.ui.controls.Form;
+import com.engine.ui.controls.TopPainter;
+import com.engine.ui.controls.Window;
+import com.engine.ui.listeners.MainDraw;
 
+/** Animation switch between Engine Windows. Usually between Forms.
+ * This is fade out switch. Means forms will be switched by fading one out and fading one in.*/
 public class FadeAway implements SwitchAnimation, MainDraw {
     private int newState;
     private final Engine p = Engine.getInstance();

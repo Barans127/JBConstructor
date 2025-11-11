@@ -11,9 +11,9 @@ public class CustomShapeRenderer extends ShapeRenderer {
 //	private long frameCount;
 	private OrthographicCamera lastCamera;
 
-	private GdxPongy pongy;
-	
-	public CustomShapeRenderer(GdxPongy pongy){
+	private GdxWrapper pongy;
+
+	public CustomShapeRenderer(GdxWrapper pongy){
 		renderer = getRenderer();
 		this.pongy = pongy;
 	}
@@ -86,7 +86,7 @@ public class CustomShapeRenderer extends ShapeRenderer {
 ////			cy = 0;
 //			renderer.color(colorBits);
 //			renderer.vertex(x + cx, y + cy, 0);
-			
+
 		} else {
 //			checkedBox(ShapeType.Line, ShapeType.Filled, segments * 3 + 3);
 

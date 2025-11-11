@@ -7,8 +7,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.engine.core.Engine;
 import com.engine.core.ErrorMenu;
 import com.engine.core.MoreUtils;
-import com.engine.interfaces.controls.TopPainter;
-import com.engine.interfaces.listeners.MainDraw;
+import com.engine.ui.controls.TopPainter;
+import com.engine.ui.listeners.MainDraw;
 
 /**
  * This class enables easy way to move camera through world. It can follow a point ( {@link Vector2} instance). Move to given point or just move to

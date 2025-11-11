@@ -3,11 +3,11 @@ package com.engine.animations;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Pool;
 import com.engine.core.MoreUtils;
-import com.engine.interfaces.controls.TopPainter;
-import com.engine.interfaces.listeners.MainDraw;
+import com.engine.ui.controls.TopPainter;
+import com.engine.ui.listeners.MainDraw;
 
 /**
- * increment or decrement counting.
+ * increment or decrement counting in a period of time.
  */
 
 public class Counter implements MainDraw, Pool.Poolable{
@@ -34,36 +34,7 @@ public class Counter implements MainDraw, Pool.Poolable{
      * @param step per kiek rezultatas turi būti pasiektas (sekundem). turėtų būt teigiamas.
      */
     public void startCount(float start, float goal, float step){
-//        if (start == goal){ // tik pasižymės, bet nieko nedarys.
-//            count = start;
-//            this.start = start;
-//            this.goal = goal;
-//            return;
-//        }
-//        float requiredAmount;
-//        if (goal > start){
-//            this.start = start;
-//            count = start;
-//            this.goal = goal;
-//            decrement = false;
-//            requiredAmount = goal - start;
-//        }else{
-//            this.start = goal;
-//            count = goal;
-//            this.goal = start;
-//            decrement = true;
-//            requiredAmount = start - goal;
-//        }
-//        if (step == 0){
-//            GdxPongy.getInstance().setError("Counter: Step cannot be 0", ErrorMenu.ErrorType.WrongPara);
-//            return;
-//        }
-//        this.step = requiredAmount / MoreUtils.abs(step);
         setValues(start, goal, step);
-//        isCounting = true;
-//        if (!Gdx.graphics.isContinuousRendering())
-//            firstFrame = true;
-//        TopPainter.addPaintOnTop(this);
         startCount();
     }
 

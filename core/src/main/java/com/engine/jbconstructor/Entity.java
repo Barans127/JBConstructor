@@ -11,11 +11,11 @@ import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TransformDrawable;
 import com.engine.core.Engine;
 import com.engine.core.MoreUtils;
-import com.engine.interfaces.controls.Window;
-import com.engine.interfaces.listeners.DrawListener;
-import com.engine.interfaces.listeners.SoundFrustum;
+import com.engine.ui.controls.Window;
+import com.engine.ui.listeners.DrawListener;
+import com.engine.ui.listeners.SoundFrustum;
 import com.engine.physics.Physics;
-import com.engine.root.GdxPongy;
+import com.engine.root.GdxWrapper;
 
 /** Single image or animation with physics polygons or not. */
 public class Entity {
@@ -268,7 +268,7 @@ public class Entity {
     }
 
     /** Positioning of this entity (absolute or fixed). Relative positioning is same as absolute.
-     * @see com.engine.interfaces.controls.Window.Position */
+     * @see com.engine.ui.controls.Window.Position */
     public int getPositioning() {
         return positioning;
     }
@@ -391,7 +391,7 @@ public class Entity {
 
     /** draw this entity. frustum is not checked here. */
     public void draw(){
-        Engine p = GdxPongy.getInstance();
+        Engine p = GdxWrapper.getInstance();
         if (drawListener != null){
             drawListener.preDraw();
         }

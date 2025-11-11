@@ -7,7 +7,7 @@ import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.engine.core.ErrorMenu;
 import com.engine.core.ImagesLoader;
 import com.engine.core.Resources;
-import com.engine.root.GdxPongy;
+import com.engine.root.GdxWrapper;
 
 /** Decodes JBConstructor files. Loads resources and holds templates which can be used to build forms.
  * It does not use {@link com.badlogic.gdx.utils.Disposable} to dispose resources as it uses {@link com.engine.core.Resources} class
@@ -116,7 +116,7 @@ public class Constructor{ // dispose nereik, nes naudojama Resource klase. Si kl
     public void decode(String jbcFile, boolean isJson, boolean isCompressed, boolean initializeResources, boolean fastInitialize){
         FileHandle e = Gdx.files.internal(jbcFile);
         if (!e.exists()){
-            GdxPongy.getInstance().setError("Cannot locate file: " + jbcFile, ErrorMenu.ErrorType.MissingResource);
+            GdxWrapper.getInstance().setError("Cannot locate file: " + jbcFile, ErrorMenu.ErrorType.MissingResource);
             return;
         }
         decode(e, isJson, isCompressed, initializeResources, fastInitialize);
@@ -133,11 +133,11 @@ public class Constructor{ // dispose nereik, nes naudojama Resource klase. Si kl
             decoder.readSave(jbcFile, isJson, isCompressed);
             if (decoder.getErrorMessage() != null) {
                 // ka su klaida darom?
-                GdxPongy.getInstance().setError(decoder.getErrorMessage(), ErrorMenu.ErrorType.ControlsError); // ir visks.
+                GdxWrapper.getInstance().setError(decoder.getErrorMessage(), ErrorMenu.ErrorType.ControlsError); // ir visks.
                 return;
             }
             if (!decoder.isExportSaveFile()) {
-                GdxPongy.getInstance().setError("File must be exported save file.", ErrorMenu.ErrorType.ControlsError);
+                GdxWrapper.getInstance().setError("File must be exported save file.", ErrorMenu.ErrorType.ControlsError);
                 return;
             }
             if (initializeResources) {
@@ -233,7 +233,7 @@ public class Constructor{ // dispose nereik, nes naudojama Resource klase. Si kl
             try {
                 info = resources.readString(); // nuskaitom eilutes.
             } catch (GdxRuntimeException ex) { // del viso pikto klaida metam.
-                GdxPongy.getInstance().setError("Cannot read from given file: " + resources.path(), ErrorMenu.ErrorType.UnknowError);
+                GdxWrapper.getInstance().setError("Cannot read from given file: " + resources.path(), ErrorMenu.ErrorType.UnknowError);
                 return;
             }
 

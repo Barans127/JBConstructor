@@ -12,6 +12,7 @@ import static com.engine.core.ErrorMenu.ErrorType;
 
 /**
  * Draws text in specified rectangle area.
+ * Contains text in that area.
  */
 public class TextContainer {
     private String realText;
@@ -31,7 +32,7 @@ public class TextContainer {
     private boolean textFit;
 
     public TextContainer(BitmapFont font){
-        p = GdxPongy.getInstance();
+        p = GdxWrapper.getInstance();
         lines = new Array<>();
         linesPosition = new Array<>();
         if (font == null){
@@ -57,11 +58,11 @@ public class TextContainer {
     }
 
     public TextContainer(String text, float width, float height, float textSize){
-        this(text, width, height, textSize, GdxPongy.getInstance().getFont());
+        this(text, width, height, textSize, GdxWrapper.getInstance().getFont());
     }
 
     public TextContainer(){
-        this(GdxPongy.getInstance().getFont());
+        this(GdxWrapper.getInstance().getFont());
     }
 
     /** Pieš tekstą pagal nurodytus bounds. */

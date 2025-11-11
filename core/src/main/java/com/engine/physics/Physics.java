@@ -16,7 +16,7 @@ import com.badlogic.gdx.utils.Disposable;
 import com.engine.core.Engine;
 import com.engine.core.ErrorMenu;
 import com.engine.core.Resources;
-import com.engine.root.GdxPongy;
+import com.engine.root.GdxWrapper;
 
 /** box2d physics. There are two ways to determine collision. One use global listener {@link ContactListener} provided from box2d.
  * Other, set body user data with {@link TouchEvent} instance. If you set user data on body with {@link TouchEvent} instance then
@@ -137,9 +137,9 @@ public class Physics implements Disposable{
 	}
 
 	/** Steps world with delta from <code>GdxPongy.getDelta()</code>. With this delta, world speed can be manipulated with
-	 * {@link GdxPongy#setWorldSpeed(float)} */
+	 * {@link GdxWrapper#setWorldSpeed(float)} */
 	public void step(){
-		step(GdxPongy.getDelta());
+		step(GdxWrapper.getDelta());
 	}
 
 	/** Steps world with given delta and default iteration settings.
@@ -172,7 +172,7 @@ public class Physics implements Disposable{
 	public World getWorld(){
 		return world;
 	}
-	
+
 	// išvalys pasaulį.
 	/** clears world. Deletes all bodies and joints. */
 	public void clearWorld(){
@@ -230,7 +230,7 @@ public class Physics implements Disposable{
 //	public Body createBody(Vector2 e){
 //		return createBody(e.x, e.y);
 //	}
-	
+
 	// custom body. pagal nurodytas cord. cord pixeliais.
 //	/** creates body with default values and places it in given coordinates. */
 //	public Body createBody(float x, float y){
@@ -249,7 +249,7 @@ public class Physics implements Disposable{
 //		}
 //		return world.createBody(body);
 //	}
-	
+
 	public Body createBody(BodyDef def){
 		if (def == null){
 //			GdxPongy.getInstance().setError("BodyDef cannot be null", ErrorType.GameError);
@@ -262,7 +262,7 @@ public class Physics implements Disposable{
 		}
 		return world.createBody(def);
 	}
-	
+
 	public Joint createJoint(JointDef e){
 		if (e == null){
 //			GdxPongy.getInstance().setError("JointDef cannot be null", ErrorType.GameError);

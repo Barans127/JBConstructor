@@ -3,10 +3,11 @@ package com.engine.root;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
 
+/** Translation from gestures. usually from touchscreens. */
 public class GestureTranslator implements GestureListener {
-    private final GdxPongy p;
+    private final GdxWrapper p;
 
-    GestureTranslator(GdxPongy p) {
+    GestureTranslator(GdxWrapper p) {
         this.p = p;
     }
 

@@ -31,11 +31,11 @@ import com.engine.core.Engine;
 import com.engine.core.ErrorMenu;
 import com.engine.core.MoreUtils;
 import com.engine.core.Resources;
-import com.engine.interfaces.controls.Form;
-import com.engine.interfaces.controls.Interface;
-import com.engine.interfaces.controls.Window;
+import com.engine.ui.controls.Form;
+import com.engine.ui.controls.Control;
+import com.engine.ui.controls.Window;
 import com.engine.physics.Physics;
-import com.engine.root.GdxPongy;
+import com.engine.root.GdxWrapper;
 
 import java.util.HashMap;
 
@@ -46,7 +46,7 @@ public class Template {
     private String idName;
 
     private Array<Entity> entities;
-    private Array<Interface> interfaces;
+    private Array<Control> interfaces;
     private Array<ChainBody> chains;
 //    private boolean isChainsLoaded = false;
 
@@ -67,14 +67,14 @@ public class Template {
     }
 
     /** All interfaces created with this template. */
-    public Array<Interface> getInterfaces() {
+    public Array<Control> getInterfaces() {
         return interfaces;
     }
 
     /** Interface by given id name. */
-    public Interface getInterface(String name){
+    public Control getInterface(String name){
         for (int a= 0; a < interfaces.size; a++){
-            Interface e = interfaces.get(a);
+            Control e = interfaces.get(a);
             if (e.getIdName().equals(name)){
                 return e;
             }
@@ -83,7 +83,7 @@ public class Template {
     }
 
     /** Interface by id from interfaces list. */
-    public Interface getInterface(int index){
+    public Control getInterface(int index){
         if (index >= 0 && index < interfaces.size){
             return interfaces.get(index);
         }
@@ -757,7 +757,7 @@ public class Template {
                         // suteikiam white image.
                         res = Resources.getDrawable(Resources.getProperty("whiteColor", "whiteSystemColor"));
                     }else {
-                        GdxPongy.getInstance().setError("Did constructor loaded resources? Resource with given key was not found. Key: " + e.resource,
+                        GdxWrapper.getInstance().setError("Did constructor loaded resources? Resource with given key was not found. Key: " + e.resource,
                                 ErrorMenu.ErrorType.MissingResource);
                         return false;
                     }

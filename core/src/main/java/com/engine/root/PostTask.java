@@ -1,7 +1,7 @@
 package com.engine.root;
 
-import com.engine.interfaces.controls.TopPainter;
-import com.engine.interfaces.listeners.MainDraw;
+import com.engine.ui.controls.TopPainter;
+import com.engine.ui.listeners.MainDraw;
 
 /** post a task with given time. It will be executed on main thread. */
 public class PostTask implements MainDraw {
@@ -67,9 +67,9 @@ public class PostTask implements MainDraw {
     }
 
     /** Override this if you want to change time counting. Etc: in game time should not be counted while on pause.
-     * default: time is taken from {@link GdxPongy#millis()}  */
+     * default: time is taken from {@link GdxWrapper#millis()}  */
     protected int getMillisTime(){
-        return GdxPongy.getInstance().millis();
+        return GdxWrapper.getInstance().millis();
     }
 
     @Override
