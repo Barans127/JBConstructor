@@ -20,25 +20,23 @@ Engine version: 1.04
 -Engine's dispose method was trying to dispose font data two times. It could crash app. Removed double disposal.
 It was trying to dispose freeTypeFont data. That data should be disposed after font was created or just added
 to disposable list separately. Using Engine's "generateFont" methods would take care of it, so no need to worry.
-Removed from Resources that font disposing. It just crashes the app before closing. It only works if there
-is nothing to dispose, so guess it means it should not be used. Where it came from I don't remember, but
-now it is gone.
+It just crashes the app before closing. It only works if there is nothing to dispose.
 -Constructor a bit adjusted documentation. A bit more info in several methods.
 -ImagesLoader replaced GdxPongy.getInstance to Engine.getInstance.
 
 2025-10-22
 Engine version: 1.03
--In Resources class was added SoundController instance. It is optional, so in order for this class to manage it you will need to
+-In Resources class SoundController instance was added. It is optional, so in order for this class to manage sounds you will need to
 call "initializeSoundController". To get instance you need to call "getSoundController". SoundController instance will be automatically
 disposed when application is closed.
--ProgressBar still used percentage divided by 100 somewhere in code. It was not used anyway. Still fixed it.
+-ProgressBar still used percentage divided by 100 while rendering. For some reasons it was not used. Still fixed it.
 -Fixed ProgressBar drawing bug with angle. Now it draws as correctly as it should no matter what angle it is.
 -Engine's "setError" methods marked as deprecated. Use normal throw error methods.
 
 2025-10-20
 Engine version: 1.02
 -Fixed default font loading. ViewPort now updates it's world coordinates which are used
-in default font loading. No more division from 0.
+in default font loading. No more division by 0.
 
 2025-10-15
 Engine version: 1.01
