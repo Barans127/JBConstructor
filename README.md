@@ -1,7 +1,7 @@
 # JBConstructor
 
-An editor for images and animations. With this editor, you can set up game levels, animations, and other elements through a simple drag-and-drop interface. It also supports physics configuration using the Box2D engine, including rigid body physics, joint creation, and chain/ground generation.
-Additionally, the editor supports [Spriter animations](https://brashmonkey.com/download-spriter-pro/)—simply create your animations in Spriter and load the exported file into the editor.
+A visual editor for creating and managing images, animations, and physics bodies. With this editor, you can set up game levels, animations, and other elements through a simple drag-and-drop interface. It supports physics configuration using the Box2D engine, including rigid body physics, joint creation, and chain/ground generation.
+Additionally, the editor supports [Spriter animations](https://brashmonkey.com/download-spriter-pro/)—simply create your animations in Spriter and load the saved file into the editor.
 
 A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://github.com/libgdx/gdx-liftoff).
 
